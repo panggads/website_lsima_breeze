@@ -24,23 +24,25 @@
     <div class="block p-6 rounded-lg shadow-lg bg-white">
         <!--div class="card-header">Tambah Berita</div-->
         <div class="card-body">
+
             <form method="POST" action="{{ route('berita.store') }}">
                 @csrf
                 
                 <div class="mb-6">
                     <label for="judul" class="{{ $label_style }}">Judul Berita</label>
-                    <input type="judul" id="judul" class="{{ $input_style }}" placeholder="Tulis judul berita" required>
+                    <input name="judul" type="text" id="judul" class="{{ $input_style }}" placeholder="Tulis judul berita" required>
                     @error('judul')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
+
                 <div class="mb-6">
                     <label for="Narasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Narasi</label>
                     <x-quill-editor 
                         label="" 
-                        name="body" 
+                        name="isi" 
                         value="" 
                         endpoint="/uploads"
                         placeholder="Content here..." />

@@ -114,14 +114,14 @@
                             <div class="p-6">
                                     <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ $row->tanggal }}</h2>
                                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $row->judul }}</h1>
-                                    <p class="leading-relaxed mb-3">
-                                        {{ $row->isi }}
-                                    </p>
+                                    <div class="leading-relaxed mb-3">
+                                        {!! $row->isi !!}
+                                    </div>
                                 <div class="flex items-center flex-wrap ">
-                                    <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
+                                    <a href="{{ route('news.detail') }}" class="cursor-pointer text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
                                         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5l7 7-7 7"></path>
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
                                         </svg>
                                     </a>
                                     <span class="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">

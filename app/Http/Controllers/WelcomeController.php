@@ -12,4 +12,9 @@ class WelcomeController extends Controller
         $beritas = Berita::all();
         return view('welcome')->with('beritas', $beritas);
     }
+
+    public function newsread(){
+       // return 'ok';
+        return view('site.berita.read');
+    }
 }

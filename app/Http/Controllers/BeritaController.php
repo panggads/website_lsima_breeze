@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BeritaController extends Controller
 {
@@ -11,11 +12,34 @@ class BeritaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $beritas = Berita::all();
+        //$beritas = Berita::all();
 
-        return view('berita.index', compact('beritas'));
+        //return view('berita.index', compact('beritas'));
+        $query = Berita::query();
+
+        if ($request->ajax()) {
+            if($search = request('s')) {
+                $query->where('email', 'like', '%' . $search . '%')
+                    ->orWhere('first_name', 'like', '%' . $search . '%')
+                    ->orWhere('last_name', 'like', '%' . $search . '%');
+            }
+
+            $model = $query->latest()->paginate(10);
+
+            // load relation if any
+            // $contacts->load('organization');
+
+            return view('berita._databerita', compact('contacts'))->render();
+        }
+
+        $model = $query->latest()->paginate(10);
+
+        return view('berita.index', [
+            'beritas' => $model
+        ]);   
+
     }
 
     /**
@@ -36,20 +60,18 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+   
         $request->validate([
             'judul' => 'required|max:225',
-            'penulis' => 'required|max:225',
             'isi' => 'required',
-            'tanggal' => 'required|date',
-            'dibaca' => 'required|integer|max:11',
         ]);
-        //Berita::create($request->all());
+
         $berita = new Berita([
             'judul' => $request->get('judul'),
-            'penulis' => $request->get('penulis'),
+            'penulis' => Auth::user()->name,
             'isi' => $request->get('isi'),
-            'tanggal' => $request->get('tanggal'),
-            'dibaca' => $request->get('dibaca'),
+            'tanggal' => date('Y-m-d'),
+            'dibaca' => 0,
         ]);
         $berita->save();
         return redirect('/berita')->with('success', 'Berita berhasil disimpan');

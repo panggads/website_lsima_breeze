@@ -13,101 +13,208 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <header class="text-gray-200 bg-gray-800 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <a class="hidden flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                <img class="mx-auto w-8" src="{{ URL::to('/') }}/img/logo-pengayoman-kecil.png" alt="" />
-            </a>
-            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-                <a class="mr-5 hover:text-gray-100 hover:cursor-pointer hover:underline underline-offset-4">Smooth L'sima</a>
-                <a class="mr-5 hover:text-gray-100 hover:cursor-pointer hover:underline underline-offset-4">Berita</a>
-                <a class="mr-5 hover:text-gray-100 hover:cursor-pointer hover:underline underline-offset-4">Profil</a>
-                <a class="mr-5 hover:text-gray-100 hover:cursor-pointer hover:underline underline-offset-4">Informasi Publik</a>
-                <a class="mr-5 hover:text-gray-100 hover:cursor-pointer hover:underline underline-offset-4">ZI</a>
-            </nav>
-            
-        </div>
+    <body>
+    <header class="bg-cover bg-center h-screen bg-slate-800">
+      <div class="h-screen w-full absolute"></div>
+      
+      <div class="container mx-auto flex p-5 items-center relative">
+        <a class="p-2 mb-0 shadow-sm hidden">
+         <img class="w-8" alt="hero" src="img/logo-pengayoman-kecil.png"> 
+        </a>
 
-        <div class="relative bg-gray-800 ">
-            <div class="absolute inset-x-0 bottom-0">
-                <svg viewBox="0 0 224 12" fill="currentColor" class="w-full -mb-1 text-white" preserveAspectRatio="none">
-                <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
-                </svg>
-            </div>
-            <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div class="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
-                <div class="my-6">
-                        <img class="rounded h-10 sm:h-36 sm:mx-auto" src="{{ URL::to('/') }}/img/logo-pengayoman-kecil.png" alt="" />
-                    </div>
-                    <h2 class="mb-6 font-sans font-black text-white  sm:leading-none">
-                        <span class="font-medium text-md tracking-normal uppercase text-base">Kementerian Hukum dan Hak Asasi Manusia RI</span><br class="hidden md:block" /><div class="mb-0"></div>
-                        <span class="text-yellow-400 text-3xl sm:text-5xl tracking-wide ">LAPAS KELAS I MALANG</span>
-                    </h2>
-                    
-                    <p class="my-12 text-base text-indigo-100 md:text-lg">
-                    Akuntabel, Profesional, Inovativ, Kreatif
-                    </p>
-                   
-                    <a
-                        href="/"
-                        aria-label="Scroll down"
-                        class="flex items-center justify-center w-10 h-10 mx-auto text-white duration-300 transform border border-gray-400 rounded-full hover:text-teal-accent-400 hover:border-teal-accent-400 hover:shadow hover:scale-110"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                        <path d="M10.293,3.293,6,7.586,1.707,3.293A1,1,0,0,0,.293,4.707l5,5a1,1,0,0,0,1.414,0l5-5a1,1,0,1,0-1.414-1.414Z"></path>
-                        </svg>
-                    </a>
+        <nav class="hidden md:block ml-auto flex-wrap items-center text-base font-sans font-medium justify-center">
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Beranda</a>
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Berita</a> 
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Profil</a>
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Informasi Publik</a>
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">WBS</a>
+          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">ZI</a>
+        </nav>
+
+        <div class="ml-auto md:hidden relative"> 
+            <button id="open-mobile-menu" class="p-1 -mr-1 transition duration-1000 rounded bg-slate-900 bg-opacity-90 text-gray-50 hover:text-yellow-400 outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>      
+            </button> 
+            <div id="mobile-menu" class="z-50 transition duration-1000 transform translate-x-full bg-slate-50 w-3/4 h-screen fixed right-0 top-0">
+                <div class="flex border-b-2 text-slate-700 border-slate-200 px-5 pb-3  pt-3">
+                    <span class="font-semibold">MENU</span>
+                    <button id="close-mobile-menu" class="ml-auto hover:text-yellow-600 transition-transform duration-700 hover:rotate-90 focus:rotate-90">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>                          
+                    </button>
                 </div>
+                <nav class="px-5 pb-3 pt-3">
+                    <ul class="space-y-4">
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">WBS</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Zona Integritas</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
+      </div>
+         
+      <svg class="absolute bottom-0 right-0" version="1.1" xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"> 
+		<defs>
+			<linearGradient id="bg">
+				<stop offset="0%" style="stop-color:rgba(255, 251, 212, 0.06)"></stop>
+				<stop offset="70%" style="stop-color:rgba(130, 130, 130, 0.6)"></stop>
+				<stop offset="100%" style="stop-color:rgba(221, 221, 221, 0.2)"></stop>
+			</linearGradient>
+			<path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+		</defs>
+		<g>
+			<use xlink:href='#wave' opacity=".3">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="10s"
+          calcMode="spline"
+          values="270 230; -334 180; 270 230"
+          keyTimes="0; .5; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacity=".6">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="8s"
+          calcMode="spline"
+          values="-270 230;243 220;-270 230"
+          keyTimes="0; .6; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacty=".9">
+				<animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="translate"
+          dur="6s"
+          calcMode="spline"
+          values="0 230;-140 200;0 230"
+          keyTimes="0; .4; 1"
+          keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+          repeatCount="indefinite" />
+			</use>
+		</g>
+	</svg>
+
+      <div class="relative mx-auto h-4/5 flex justify-center items-center w-full px-4 py-16 ">
+            <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+              <div id="tagline" class="opacity-0 transition-opacity duration-1000 max-w-xl mb-10 mx-auto text-center lg:max-w-6xl md:mb-12">
+                <a class="p-2 mb-0 shadow-lg"> 
+                  <img class="w-12 mx-auto" alt="hero" src="img/logo-pengayoman-kecil.png"> 
+                 </a>
+                <h2 class="text-slate-50 uppercase text-sm md:text-lg">Kementerian Hukum dan HAM RI</h2>
+                <h2 class="max-w-full mb-6 font-sans text-lg md:text-3xl font-bold leading-loose tracking-normal text-slate-200 md:mx-auto">
+                  <span class="inline-block">LEMBAGA PEMASYARAKATAN KELAS I MALANG</span> 
+                </h2>
+                <p class="text-sm inline-block text-gray-400 md:text-lg"> 
+                  Selamat datang di website Lapas I Malang, kami berkomitmen untuk menjaga keamanan dan membangun kepribadian para warga binaan serta memberikan pelayanan yang optimal.
+
+                  
+                  
+                </p>
+                <div class="relative group mx-auto w-20 opacity-60"  onclick="scrollToInovasi()"> 
+                  <svg class="mx-auto mt-12 md:mt-32 text-slate-50 w-12 h-12 group-hover:animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="group-hover:opacity-100 opacity-0 transition-opacity duration-1000 text-slate-50 text-xs">Click Me!</span> 
+                </div>
+                
+                 
+              </div>
+              
+            </div>
+      </div>
+      
     </header>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-        </div>
+        {{ $slot }}
     </body>
-    <footer class="text-gray-200 body-font bg-gray-600">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="-mx-4 -mb-10 text-center">
-          <div class="mb-10 px-4">
-            <h2 class="title-font text-2xl font-bold text-gray-100 mt-6 mb-3 uppercase">Lembaga Pemasyarakatan Kelas I Malang</h2>
-            <p class="leading-relaxed text-base">Jl. Asahan, Bunulrejo, Kec. Blimbing, Kota Malang, Jawa Timur 65123
-              <br>
-              <span class="text-gray-300 mt-2 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                </svg>
-                <span class="mx-3">(0341) 491201</span>
-              </span>
-              
-              <span class="text-gray-300 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
 
-                <span class="ml-3">lapasmalanglowokwaru@gmail.com</span>
-              </span>
-               
-            </p>
-            <button class="flex mx-auto mt-12 text-gray-700 font-semibold bg-gray-100 border-0 py-2 px-5 focus:outline-none hover:bg-gray-200 rounded">GOOGLE MAPS</button>
-          </div>
-        </div>
-      </div>
-      <div class="bg-gray-800">
-        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            
-          </a>
-          <p class="text-sm text-gray-200 sm:ml-6 sm:mt-0 mt-4">
-            
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="text-gray-200">
-            © 2023 LAPAS KELAS I MALANG
+    <footer class="text-gray-600 body-font">
+      <div class="bg-gray-100">
+          <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <img class="w-8" alt="hero" src="img/logo-pengayoman-kecil.png"> 
+
+              <span class="ml-3 text-xl">LAPAS I MALANG</span>
             </a>
-            
-          </span>
-        </div>
+            <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2023 —
+              <a href="" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Itpsng</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+              <a class="text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
       </div>
     </footer>
+    <script>
+        //Start Hamburger Menu
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        });
+
+        document.getElementById('open-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        });
+        //END Hamburger Menu
+
+        //const animate = document.querySelector('.animate-section');
+
+        //window.addEventListener('scroll', () => {
+        //  const taglineTop = animate.getBoundingClientRect().top;
+        //  const windowHeight = window.innerHeight;
+
+        //  if (taglineTop < windowHeight) {
+        //    animate.classList.remove('translate-y-full');
+        //  }else{
+            //animate.classList.toggle('translate-x-full');           g   
+        //  }
+        //});
+        
+        function scrollToInovasi() {
+          var inovasiSection = document.getElementById("inovasi"); // get the section element by its ID
+          inovasiSection.scrollIntoView({behavior: "smooth"}); // scroll smoothly to the section
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          document.getElementById('tagline').classList.add('opacity-100');
+        });
+    </script>
+</body>
 </html>

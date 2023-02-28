@@ -23,7 +23,7 @@ class BeritaController extends Controller
 
         // If a search term is provided, filter the results by the search term
         if (!empty($searchTerm)) {
-            $query->where('title', 'like', '%' . $searchTerm . '%');
+            $query->where('judul', 'like', '%' . $searchTerm . '%');
         }
 
         // Paginate the results

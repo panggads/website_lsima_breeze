@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Berita;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+ 
 class BeritaController extends Controller
 {
     /**
@@ -14,32 +15,30 @@ class BeritaController extends Controller
      */
     public function index(Request $request)
     {
-        //$beritas = Berita::all();
+        $perPage = 10; // Number of items to show per page
+        $searchTerm = $request->input('searchTerm', ''); // Search term from AJAX request
 
-        //return view('berita.index', compact('beritas'));
+        // Query the Berita model to get all the items
         $query = Berita::query();
 
-        if ($request->ajax()) {
-            if($search = request('s')) {
-                $query->where('email', 'like', '%' . $search . '%')
-                    ->orWhere('first_name', 'like', '%' . $search . '%')
-                    ->orWhere('last_name', 'like', '%' . $search . '%');
-            }
-
-            $model = $query->latest()->paginate(10);
-
-            // load relation if any
-            // $contacts->load('organization');
-
-            return view('berita._databerita', compact('contacts'))->render();
+        // If a search term is provided, filter the results by the search term
+        if (!empty($searchTerm)) {
+            $query->where('title', 'like', '%' . $searchTerm . '%');
         }
 
-        $model = $query->latest()->paginate(10);
+        // Paginate the results
+        $beritas = $query->paginate($perPage);
 
-        return view('berita.index', [
-            'beritas' => $model
-        ]);   
+        // If the request is an AJAX request, return a JSON response
+        if ($request->ajax()) {
+            return response()->json([
+                'status' => 'success',
+                'data' => $beritas,
+            ]);
+        }
 
+        // If it's not an AJAX request, return a view with the paginated results
+        return view('berita.index', compact('beritas'));
     }
 
     /**

@@ -114,7 +114,7 @@
           <div class="p-4 md:w-1/3">
             <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-700 ease-out">
                 @if ($coverUrl)
-                  <img class="lg:h-64 md:h-56 w-full object-cover object-center" src="{{ $coverUrl }}" alt="Cover Image" id="image-cover">
+                  <img class="lg:h-64 md:h-56 w-full object-cover object-center border-b-2 border-yellow-400" src="{{ $coverUrl }}" alt="Cover Image" id="image-cover">
                 @else
                   <img class="lg:h-56 md:h-48 w-full object-cover object-center" src="https://dummyimage.com/1280x720 " alt="blog">
                 @endif

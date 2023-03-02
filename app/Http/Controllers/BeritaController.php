@@ -5,6 +5,7 @@ use App\Models\Berita;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
  
 class BeritaController extends Controller
 {
@@ -73,7 +74,48 @@ class BeritaController extends Controller
             'dibaca' => 0,
         ]);
         $berita->save();
-        return redirect('/berita')->with('success', 'Berita berhasil disimpan');
+       // return redirect('show', $berita->id);
+        return redirect()->route('berita.show', $berita->id)->with('success', 'Berita berhasil ditambahkan');
+       // return redirect('/berita')->with('success', 'Berita berhasil disimpan');
+    }
+
+    
+    public function upload(Request $request)
+    {
+       
+
+            $berita = Berita::find($request->input('id'));
+            if (!$berita) {
+                return response()->json(['message' => 'Record not found'], 404);
+            }
+
+            // Check if the cover file exists and delete it if it does
+            if ($request->hasFile('image') && $berita->cover) {
+                $cover_path = public_path('img/berita/' . $berita->cover);
+                if (File::exists($cover_path)) {
+                    File::delete($cover_path);
+                }
+            }
+
+            // Update the cover field if a new file was uploaded
+            if ($request->hasFile('image')) {
+                if ($request->file('image')) {
+                    $image = $request->file('image');
+                    $name = time().'.'.$image->getClientOriginalExtension();
+                    $destinationPath = public_path('/img/berita');
+                    $image->move($destinationPath, $name);
+        
+                    $url = 'img/berita/'.$name;
+
+                    $berita->cover = $name;
+                    $berita->save();
+                }
+            }          
+
+            return response()->json([
+                'url' => $url
+            ], 200);
+        return;
     }
 
     /**
@@ -109,23 +151,13 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'judul' => 'required|max:225',
-            'penulis' => 'required|max:225',
-            'isi' => 'required',
-            'tanggal' => 'required|date',
-            'dibaca' => 'required|integer|max:11',
-        ]);
-
-        $berita = Berita::find($id);
-        $berita->judul = $request->get('judul');
-        $berita->penulis = $request->get('penulis');
-        $berita->isi = $request->get('isi');
-        $berita->tanggal = $request->get('tanggal');
-        //$berita->dibaca = $request->get('dibaca');
+        $berita = Berita::findOrFail($id);
+    
+        $berita->judul = $request->judul;
+        $berita->isi = $request->isi;
         $berita->save();
 
-        return redirect('/berita')->with('success', 'Berita berhasil diupdate');
+        return redirect()->route('berita.show', $id)->with('success', 'Berita berhasil diupdate');
     }
 
     /**
@@ -137,6 +169,11 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         $berita = Berita::find($id);
+
+        $cover_path = public_path('img/berita/' . $berita->cover);
+        if (File::exists($cover_path)) {
+            File::delete($cover_path);
+        }
         $berita->delete();
 
         return redirect('/berita')->with('success', 'Berita berhasil dihapus');

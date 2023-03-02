@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/berita', BeritaController::class);
+Route::post('berita/upload', [BeritaController::class, 'upload'])->name('berita.upload');
+
 
 Route::resource('/uploads', UploadController::class);
 require __DIR__.'/auth.php';

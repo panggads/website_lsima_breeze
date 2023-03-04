@@ -120,11 +120,11 @@
                 @endif
               
               <div class="p-6">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ $row->tanggal }}</h2>
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ date('d M Y', strtotime($row->tanggal))}}</h2>
                 <h1 class="title-font text-lg font-semibold text-gray-900 mb-3">{{ $row->judul }}</h1>
                 <div class="leading-relaxed mb-3">{!! Illuminate\Support\Str::limit($row->isi, 150, '...') !!}</div>
                 <div class="flex items-center flex-wrap ">
-                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
+                  <a href="{{ route('read', ['id' => $row->id]) }}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Selengkapnya
                     <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M5 12h14"></path>
                       <path d="M12 5l7 7-7 7"></path>
@@ -149,72 +149,47 @@
 
         @endforelse
         </div>
+        <div class="relative mt-16 -mb-10 text-center">
+            <a href="#" class="py-3 px-6 bg-slate-800 text-slate-100 rounded-lg hover:bg-slate-900">Lihat semua berita</a>
+          </div>
       </div>
     </section>
     
     <svg class="text-slate-50 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="currentcolor" fill-opacity="1" d="M0,224L34.3,213.3C68.6,203,137,181,206,165.3C274.3,149,343,139,411,122.7C480,107,549,85,617,74.7C685.7,64,754,64,823,64C891.4,64,960,64,1029,58.7C1097.1,53,1166,43,1234,32C1302.9,21,1371,11,1406,5.3L1440,0L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg>
     
-    <section class="text-gray-600 body-font overflow-hidden md:-mt-20 lg:-mt-40">
-      <div class="container px-5 py-24 mx-auto">
-        
-        <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">BERITA</span> DARI MEDIA LAIN</h1>   
-        <p class="text-center mb-12 md:mb-28">Perkembangan terbaru dari kami melalui berita media lain</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 -my-8">
-          
-          <div class="md:mx-3 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-slate-50">
-            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-              <span class="font-semibold title-font text-gray-700">CATEGORY</span>
-              <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
-            </div>
-            <div class="md:flex-grow">
-              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Bitters hashtag waistcoat fashion axe chia unicorn</h2>
-              <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
-              <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
+    <section class="text-gray-600 body-font md:-mt-20 lg:-mt-40">
+  <div class="container px-5 py-24 mx-auto">
+    <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">BERITA</span> DARI MEDIA LAIN</h1>   
+    <p class="text-center mb-12 md:mb-28">Perkembangan terbaru dari kami melalui berita media lain</p>
+    <div class="flex flex-wrap -mx-4 -my-8">
+      @forelse($medialains as $row)
+      <div class="py-8 px-4 lg:w-1/3">
+        <div class="h-full flex items-start">
+          <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
+            <span class="text-gray-500 pb-2 mb-2 border-b-2 border-gray-200">{{ date('M', strtotime($row->tanggal)) }}</span>
+            <span class="font-medium text-lg text-gray-800 title-font leading-none">{{ date('d', strtotime($row->tanggal))}}</span>
           </div>
-
-          <div class="md:mx-3 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-slate-50">
-            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-              <span class="font-semibold title-font text-gray-700">CATEGORY</span>
-              <span class="mt-1 text-gray-500 text-sm">12 Jun 2019</span>
-            </div>
-            <div class="md:flex-grow">
-              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Meditation bushwick direct trade taxidermy shaman</h2>
-              <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
-              <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
+          <div class="flex-grow pl-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">Berita dari media lain</h2>
+            <h1 class="title-font text-xl font-medium text-gray-900 mb-3">{{ $row->judul }}</h1>     
+            <a href="{{ $row->sumber }}" target="_blank" class="text-indigo-500 inline-flex items-center mt-0">Selengkapnya      
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
           </div>
-
-          <div class="md:mx-3 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-slate-50">
-            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-              <span class="font-semibold title-font text-gray-700">CATEGORY</span>
-              <span class="text-sm text-gray-500">12 Jun 2019</span>
-            </div>
-            <div class="md:flex-grow">
-              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Woke master cleanse drinking vinegar salvia</h2>
-              <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
-              <a class="text-indigo-500 inline-flex items-center mt-4">Learn More
-                <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
+      @empty
+
+      @endforelse
+    </div>
+    <div class="relative mt-16 text-right">
+            <a href="#" class="py-3 px-6 bg-slate-800 text-slate-100 rounded-lg hover:bg-slate-900">Lihat semua berita media lain</a>
+          </div>
+  </div>
+</section>
 
     <section class="bg-slate-50 text-gray-600 body-font pb-12">
         <div class="container px-5 py-24 mx-auto">

@@ -9,144 +9,123 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <script type="text/javascript">
-            document.addEventListener('DOMContentLoaded', () => { //fungsi di load setelah seluruh DOM termuat
-                document.querySelector('.toggle-mobile-menu').addEventListener('click', () => {
-                    document.querySelector('.mobile-menu').classList.toggle('hidden');
-                    //alert('ok');
-                });
-            });
-            
-        </script>
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <header class="text-gray-200 bg-gray-800 py-2 px-4 body-font">
-            <div class="max-w-7xl mx-auto">
-                <div class="relative flex items-center justify-between">
-                    <!--Logo-->
-                    <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
-                        <!--img class="mx-auto w-8" src="{{ URL::to('/') }}/img/logo-pengayoman-kecil.png" alt="" /-->
-                        <span class="sm:block hidden ml-2 text-xl font-bold tracking-wide text-yellow-400 uppercase">LAPAS I MALANG</span>
+    <header class="isolate bg-gray-900">
+
+        <div class="container mx-auto relative px-6 py-3 lg:px-8">
+            <nav class="flex items-center justify-between" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Lapas I Malang</span>
+                    <img class="w-7" alt="hero" src="/img/logo-pengayoman-kecil.png"> 
                     </a>
-                    <div class="sm:block hidden">
-                        <!--Dekstop menu-->
-                        <ul class="flex items-center space-x-8 lg:flex">
-                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Product</a></li>
-                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Features</a></li>
-                            <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">Pricing</a></li>
-                            <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">About us</a></li>
-                            <li>
-                            <a
-                                href="/"
-                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </a>
-                            </li>
-                        </ul>
-                    </div>
-                <!-- Mobile menu hamburger -->
-                <div class="sm:hidden">
-                    <button aria-label="Open Menu" title="Open Menu" class="toggle-mobile-menu p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
-                        <svg class="w-5 text-white" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
-                            <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
-                            <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
-                        </svg>
+                </div>
+                <div class="flex lg:hidden">
+                <button id="open-mobile-menu" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+                </div>
+                    <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
+            
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a>
+            
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Profil</a>
+            
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Informasi Publik</a>
+
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">WBS</a>
+
+                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">ZI</a>
+                
+                </div> 
+            
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div id="mobile-menu" class="z-50 transition duration-1000 transform translate-x-full bg-slate-50 w-3/4 h-screen fixed right-0 top-0">
+                <div class="flex border-b-2 text-slate-700 border-slate-200 px-5 pb-3  pt-3">
+                    <span class="font-semibold">MENU</span>
+                    <button id="close-mobile-menu" class="ml-auto hover:text-yellow-600 transition-transform duration-700 hover:rotate-90 focus:rotate-90">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>                          
                     </button>
-                    <!-- Mobile menu dropdown -->
-                    <div class="mobile-menu absolute top-0 left-0 w-full hidden">
-                    <div class="p-5 bg-white border rounded shadow-sm">
-                        <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
-                            <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
-                                <rect x="3" y="1" width="7" height="12"></rect>
-                                <rect x="3" y="17" width="7" height="6"></rect>
-                                <rect x="14" y="1" width="7" height="6"></rect>
-                                <rect x="14" y="11" width="7" height="12"></rect>
-                            </svg>
-                            <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
-                            </a>
-                        </div>
-                        <div>
-                            <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-                                <path
-                                fill="currentColor"
-                                d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                                ></path>
-                            </svg>
-                            </button>
-                        </div>
-                        </div>
-                        <nav>
-                        <ul class="space-y-4">
-                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
-                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
-                            <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
-                            <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
-                        </ul>
-                        </nav>
-                    </div>
-                    </div>
-              
                 </div>
-                </div>
+                <nav class="px-5 pb-3 pt-3">
+                    <ul class="space-y-4">
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">WBS</a></li>
+                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Zona Integritas</a></li>
+                    </ul>
+                </nav>
             </div>
+        </div>
+    </header>
+
+   
+ </div>
     </header>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             @yield('content')
         </div>
-    </body>
-    <footer class="text-gray-200 body-font bg-gray-600">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="-mx-4 -mb-10 text-center">
-          <div class="mb-10 px-4">
-            <h2 class="title-font text-2xl font-bold text-gray-100 mt-6 mb-3 uppercase">Lembaga Pemasyarakatan Kelas I Malang</h2>
-            <p class="leading-relaxed text-base">Jl. Asahan, Bunulrejo, Kec. Blimbing, Kota Malang, Jawa Timur 65123
-              <br>
-              <span class="text-gray-300 mt-2 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                </svg>
-                <span class="mx-3">(0341) 491201</span>
-              </span>
-              
-              <span class="text-gray-300 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
 
-                <span class="ml-3">lapasmalanglowokwaru@gmail.com</span>
-              </span>
-               
-            </p>
-            <button class="flex mx-auto mt-12 text-gray-700 font-semibold bg-gray-100 border-0 py-2 px-5 focus:outline-none hover:bg-gray-200 rounded">GOOGLE MAPS</button>
-          </div>
-        </div>
-      </div>
-      <div class="bg-gray-800">
-        <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            
-          </a>
-          <p class="text-sm text-gray-200 sm:ml-6 sm:mt-0 mt-4">
-            
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-            <a class="text-gray-200">
-            © 2023 LAPAS KELAS I MALANG
-            </a>
-            
-          </span>
-        </div>
-      </div>
-    </footer>
+        <footer class="text-slate-300 body-font">
+            <div class="bg-slate-900">
+                <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img class="w-5" alt="hero" src="/img/logo-pengayoman-kecil.png"> 
+
+                    <span class="ml-3 text-sm font-semibold text-slate-300">LAPAS I MALANG</span>
+                    </a>
+                    <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2023 —
+                    <a href="" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Itpsng</a>
+                    </p>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                    <a class="text-gray-400">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-400">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-400">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-400">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                    </span>
+                </div>
+            </div>
+        </footer>
+        <script>
+        //Start Hamburger Menu
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        });
+
+        document.getElementById('open-mobile-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('translate-x-full');
+        });
+        //END Hamburger Menu
+    </script>
+    </body>
 </html>

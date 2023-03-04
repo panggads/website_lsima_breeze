@@ -14,22 +14,22 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-    <header class="bg-cover bg-center h-screen bg-slate-800">
-      <div class="absolute top-0 right-0 w-full h-full bg-cover bg-center" style="background-image: url(img/bg-head.jpg); opacity: 0.1;"></div>
+    <header class="bg-cover bg-center h-screen bg-gray-900">
+      <div class="absolute top-0 right-0 w-full h-full bg-cover bg-center" style="background-image: url(img/bg-head.jpg); opacity: 0.04;"></div>
       <div class="h-screen w-full absolute"></div>
       
-      <div class="container mx-auto flex p-5 items-center relative">
+      <div class="container mx-auto flex p-5 items-center relative pt-6">
         <a class="p-2 mb-0 shadow-sm hidden">
          <img class="w-8" alt="hero" src="img/logo-pengayoman-kecil.png"> 
         </a>
 
-        <nav class="hidden md:block ml-auto flex-wrap items-center text-base font-sans font-medium justify-center">
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Beranda</a>
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Berita</a> 
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Profil</a>
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">Informasi Publik</a>
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">WBS</a>
-          <a class="cursor-pointer mr-5 text-gray-50 hover:border-b-2 hover:border-slate-50 hover:scale-110 transition duration-700">ZI</a>
+        <nav class="hidden md:block ml-auto flex-wrap items-center text-base font-sans font-medium justify-center z-50">
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a> 
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Profil</a>
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Informasi Publik</a>
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">WBS</a>
+          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">ZI</a>
         </nav>
 
         <div class="ml-auto md:hidden relative"> 

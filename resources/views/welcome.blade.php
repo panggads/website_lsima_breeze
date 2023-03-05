@@ -76,7 +76,7 @@
             
             <p class="mb-8 leading-relaxed"><br><br> Dengan aplikasi ini, diharapkan dapat memudahkan keluarga narapidana dalam mengakses informasi dan layanan yang ada di Lapas I Malang.</p>
             <div class="flex justify-center mr-auto">
-              <a href="https://www.app.lapasmalang.com" target="_blank">
+              <a href="https://app.lapasmalang.com/site/login" target="_blank">
                 <span class="relative inline-flex">
                   <button type="button" class="inline-flex text-white bg-slate-700 border-0 py-2 px-6 focus:outline-none hover:bg-slate-800 rounded md:text-md">
                     Buka Aplikasi

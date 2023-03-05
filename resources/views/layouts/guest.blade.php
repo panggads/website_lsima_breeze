@@ -149,13 +149,8 @@
     <footer class="text-slate-300 body-font">
       <div class="bg-slate-900">
           <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-              <img class="w-5" alt="hero" src="img/logo-pengayoman-kecil.png"> 
-
-              <span class="ml-3 text-sm font-semibold text-slate-300">LAPAS I MALANG</span>
-            </a>
-            <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2023 —
-              <a href="" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@Itpsng</a>
+            <p class="text-sm text-gray-100 sm:ml-6 sm:mt-0 mt-4">© 2023 — Created by 
+              <a href="https://www.instagram.com/pangga.ds/" rel="noopener noreferrer" class="text-gray-100 ml-1" target="_blank">@pangga.ds</a>
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
               <a class="text-gray-400">

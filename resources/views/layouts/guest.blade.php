@@ -14,7 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-    <header class="bg-cover bg-center h-full md:h-screen bg-gray-900">
+    <header class="bg-cover bg-center h-5/6 md:h-screen bg-gray-900">
       <div class="absolute top-0 right-0 w-full h-full bg-cover bg-center" style="background-image: url(img/bg-head.jpg); opacity: 0.04;"></div>
       <div class="h-screen w-full absolute"></div>
       

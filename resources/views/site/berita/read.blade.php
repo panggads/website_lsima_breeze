@@ -3,7 +3,7 @@
 @section('content')
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto flex">
-        <div class="md:basis-9/12">
+        <div class="basis-12/12 md:basis-9/12">
           <?php $coverUrl = $detail->cover ? asset('img/berita/' . $detail->cover) : null; ?>
           @if($coverUrl)
             <img src="/img/berita/{{ $detail->cover }}">
@@ -42,7 +42,7 @@
           </div>
 
         </div>
-        <div class="md:basis-4/12 md:ml-8">
+        <div class="basis-12/12 md:basis-4/12 md:ml-8">
           <div class="flex flex-wrap -m-4">
             @forelse($beritas as $row)
             <div class="p-4">

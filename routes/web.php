@@ -26,8 +26,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/', [WelcomeController::class, 'index'])->name('index');
 Route::get('/news/{id}', [WelcomeController::class, 'read'])->name('read');
+Route::get('/allnews', [WelcomeController::class, 'allnews'])->name('allnews');
+Route::get('/get-more-news', [WelcomeController::class, 'getdatanews'])->name('getdatanews');
 
+Route::get('/allmedia', [WelcomeController::class, 'allmedia'])->name('allmedia');
+Route::get('/get-more-medias', [WelcomeController::class, 'getdatamedias'])->name('getdatamedias');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

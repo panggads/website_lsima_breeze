@@ -11,27 +11,21 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('scripts')
     </head>
     <header class="isolate bg-gray-900">
 
         <div class="container mx-auto relative px-6 py-3 lg:px-8">
             <nav class="flex items-center justify-between" aria-label="Global">
                 <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
+                    <a href="{{ route('index') }}" class="-m-1.5 p-1.5">
                     <span class="sr-only">Lapas I Malang</span>
                     <img class="w-7" alt="hero" src="/img/logo-pengayoman-kecil.png"> 
                     </a>
                 </div>
-                <div class="flex lg:hidden">
-                <button id="open-mobile-menu" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-                </div>
-                    <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
+                
+                <div class="hidden md:flex lg:gap-x-12">
+                    <a href="{{ route('index') }}" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
             
                     <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a>
             
@@ -44,7 +38,14 @@
                     <a href="#" class="text-base font-semibold leading-6 text-gray-100 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">ZI</a>
                 
                 </div> 
-            
+                <div class="flex md:hidden">
+                    <button id="open-mobile-menu" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
             </nav>
             <!-- Mobile menu, show/hide based on menu open state. -->
             <div id="mobile-menu" class="z-50 transition duration-1000 transform translate-x-full bg-slate-50 w-3/4 h-screen fixed right-0 top-0">
@@ -58,7 +59,7 @@
                 </div>
                 <nav class="px-5 pb-3 pt-3">
                     <ul class="space-y-4">
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
+                        <li><a href="{{ route('index') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>

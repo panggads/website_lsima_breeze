@@ -14,7 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-    <header class="bg-cover bg-center h-5/6 md:h-screen bg-gray-900">
+    <header class="bg-cover bg-center h-screen bg-gray-900">
       <div class="absolute top-0 right-0 w-full h-full bg-cover bg-center" style="background-image: url(img/bg-head.jpg); opacity: 0.04;"></div>
       <div class="h-screen w-full absolute"></div>
       
@@ -24,7 +24,7 @@
         </a>
 
         <nav class="hidden md:block ml-auto flex-wrap items-center text-base font-sans font-medium justify-center z-50">
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
+          <a href="{{ route('index') }}" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
           <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a> 
           <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Profil</a>
           <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Informasi Publik</a>
@@ -37,7 +37,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>      
-            </button> 
+            </button>
+
             <div id="mobile-menu" class="z-50 transition duration-1000 transform translate-x-full bg-slate-50 w-3/4 h-screen fixed right-0 top-0">
                 <div class="flex border-b-2 text-slate-700 border-slate-200 px-5 pb-3  pt-3">
                     <span class="font-semibold">MENU</span>
@@ -49,7 +50,7 @@
                 </div>
                 <nav class="px-5 pb-3 pt-3">
                     <ul class="space-y-4">
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
+                        <li><a href="{{ route('index') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
                         <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>
@@ -58,7 +59,8 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        
+          </div>
       </div>
          
       <svg class="absolute bottom-0 right-0" version="1.1" xmlns="http://www.w3.org/2000/svg"

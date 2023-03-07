@@ -22,4 +22,22 @@ class WelcomeController extends Controller
         $medialains = MediaLain::latest()->take(6)->get();
         return view('site.berita.read', compact('detail', 'medialains', 'beritas'));
     }
+
+    public function allnews(){
+         return view('site.berita.index');
+    }
+
+    public function getdatanews(Request $request) {
+        $data = Berita::paginate(3, ['*'], 'page', $request->input('page'));
+        return view('site.berita.partial.getdatanews', ['data' => $data])->render();
+    }
+
+    public function allmedia(){
+        return view('site.medialain.index');
+    }
+
+    public function getdatamedias(Request $request) {
+        $data = MediaLain::paginate(3, ['*'], 'page', $request->input('page'));
+        return view('site.medialain.partial.getdatamedias', ['data' => $data])->render();
+    }
 }

@@ -16,6 +16,10 @@ class WelcomeController extends Controller
         return view('welcome', compact('beritas', 'medialains'));
     }
 
+    public function profil(){
+        return view('site.profil.index');
+    }
+
     public function read($id){
         $detail = Berita::findOrFail($id);
         $beritas = Berita::latest()->take(6)->get();

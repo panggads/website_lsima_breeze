@@ -12,6 +12,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('scripts')
     </head>
     <body>
     <header class="bg-cover bg-center h-screen bg-gray-900">
@@ -25,11 +26,11 @@
 
         <nav class="hidden md:block ml-auto flex-wrap items-center text-base font-sans font-medium justify-center z-50">
           <a href="{{ route('index') }}" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Beranda</a>
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a> 
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Profil</a>
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Informasi Publik</a>
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">WBS</a>
-          <a href="" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">ZI</a>
+          <a href="#berita-section" class="scroll-link text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Berita</a> 
+          <a href="{{ route('profil') }}" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Profil</a>
+          <a href="{{ route('informasi') }}" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">Informasi Publik</a>
+          <a href="https://wbs.kemenkumham.go.id/index.php?r=site/main" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">WBS</a>
+          <a href="{{ route('zi') }}" class="text-base font-semibold leading-6 cursor-pointer mx-6 text-slate-50 hover:text-gray-900 hover:bg-yellow-400 hover:rounded-lg py-1 px-3">ZI</a>
         </nav>
 
         <div class="ml-auto md:hidden relative"> 
@@ -51,11 +52,11 @@
                 <nav class="px-5 pb-3 pt-3">
                     <ul class="space-y-4">
                         <li><a href="{{ route('index') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Beranda</a></li>
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">WBS</a></li>
-                        <li><a href="/" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Zona Integritas</a></li>
+                        <li><a href="{{ route('allnews') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Berita</a></li>
+                        <li><a href="{{ route('profil') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Profil</a></li>
+                        <li><a href="{{ route('informasi') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Informasi Publik</a></li>
+                        <li><a href="https://wbs.kemenkumham.go.id/index.php?r=site/main" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">WBS</a></li>
+                        <li><a href="{{ route('zi') }}" class="font-normal text-gray-700 transition duration-200 hover:scale-125 hover:text-yellow-500">Zona Integritas</a></li>
                     </ul>
                 </nav>
             </div>

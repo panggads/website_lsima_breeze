@@ -1,4 +1,22 @@
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+  $(document).on('click', '.scroll-link', function(e) {
+    e.preventDefault();
+    var sectionId = $(this).attr('href').substring(1);
+    scrollToSection(sectionId);
+  });
+
+  function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+@endpush
 <x-guest-layout>
+
     <section id="inovasi" class="text-gray-600 body-font container mx-auto px-5 pb-16 pt-20 -mb-8 sm:-mb-28 md:-mb-48">
       <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">INOVASI</span> TERBARU</h1>   
         <p class="text-center mb-12 md:mb-28">Memudahkan pengguna dalam mengakses Informasi dan Layanan</p>
@@ -101,7 +119,7 @@
     
     <svg class="text-slate-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="currentcolor" fill-opacity="1" d="M0,128L48,154.7C96,181,192,235,288,240C384,245,480,203,576,176C672,149,768,139,864,149.3C960,160,1056,192,1152,192C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
     
-    <section class="text-gray-600 body-font bg-slate-50">
+    <section id="berita-section" class="text-gray-600 body-font bg-slate-50">
       <div class="container px-5 pb-24 pt-24 md:pt-12 mx-auto">
         <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">BERITA</span> TERBARU</h1>   
         <p class="text-center mb-12 md:mb-28">Terus ikuti perkembangan terbaru dari kami melalui berita-berita terbaru kami!</p>
@@ -192,80 +210,9 @@
     </section>
 
     @include('site/_section_medsos', ['title' => 'Media Sosial'])
+    @include('site/_section_testimoni', ['title' => 'Testimoni'])
+    @include('site/_section_faq', ['title' => 'Faq'])
     
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">TESTIMONI</span> PENGGUNA LAYANAN</h1>   
-        <p class="text-center mb-12 md:mb-28">Mendapat Pelayanan Terbaik dari Lembaga Pemasyarakatan Kelas I Malang, Seperti yang Diceritakan oleh Pengguna Layanan Kami</p>
-        <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
-            <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-          </svg>
-          <p class="leading-relaxed text-lg italic">Saya sudah berkunjung ke Lapas Kelas 1 Malang beberapa kali dan selalu merasa puas dengan layanan yang diberikan. Selain lokasinya yang strategis dan mudah diakses, pelayanan dan fasilitas yang ada di sana sangat memadai untuk mendukung kegiatan kunjungan</p>
-          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
-          <h2 class="text-gray-900 font-bold title-font tracking-wider text-sm">AHMADI RYANTONO</h2>
-          <p class="text-gray-500">Pengunjung</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="text-gray-600 body-font bg-slate-50">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="text-center mb-20">
-          <h1 class="text-center mb-3  font-medium text-xl md:text-3xl"><span class="text-yellow-500 font-bold">PERTANYAAN</span> YANG SERING DIAJUKAN</h1>   
-          <p class="text-center mb-12 md:mb-28">Temukan Jawaban untuk Pertanyaan-pertanyaan yang sering diajukan</p>
-        </div>
-        <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-              <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-
-              <span class="title-font font-medium">Bagaimana cara mengurus Pembebasan Bersyarat?</span>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-            <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-              <span class="title-font font-medium">Tata cara dan jadwal kunjungan untuk tahanan dan narapidana?</span>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-                <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-              <span class="title-font font-medium">Proses perubahan dari status tahanan ke narapidana?</span>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-            <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-              <span class="title-font font-medium">Makanan dan barang yang boleh dititipkan saat berkunjung?</span>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-            <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-              <span class="title-font font-medium">Cara mendapatkan surat izin berkunjung dari penahan?</span>
-            </div>
-          </div>
-          <div class="p-2 sm:w-1/2 w-full">
-            <div class="bg-gray-100 rounded flex p-4 h-full items-center">
-            <svg class="text-indigo-500 w-8 h-8 flex-shrink-0 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-              </svg>
-              <span class="title-font font-medium">Cara mengurus asimilasi?</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
+    
 </x-guest-layout>

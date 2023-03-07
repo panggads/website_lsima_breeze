@@ -34,6 +34,10 @@ Route::get('/get-more-news', [WelcomeController::class, 'getdatanews'])->name('g
 Route::get('/allmedia', [WelcomeController::class, 'allmedia'])->name('allmedia');
 Route::get('/get-more-medias', [WelcomeController::class, 'getdatamedias'])->name('getdatamedias');
 
+Route::get('/profil', [WelcomeController::class, 'profil'])->name('profil');
+Route::get('/informasi', [WelcomeController::class, 'informasi'])->name('informasi');
+Route::get('/zi', [WelcomeController::class, 'zi'])->name('zi');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
